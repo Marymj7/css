@@ -1,0 +1,89 @@
+/* Importa a fonte Raleway do Google Fonts com diferentes pesos */
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,500,800');
+
+/* Estilos gerais do corpo da página */
+body{
+background-color: #192a56; /* Cor de fundo azul escuro */
+margin: 0; /* Remove margens padrão */
+height: 100vh; /* Altura igual à viewport inteira */
+display: flex; /* Ativa o modelo Flexbox */
+justify-content: center; /* Centraliza horizontalmente */
+align-items: center; /* Centraliza verticalmente */
+font-family: 'Raleway', Arial, sans-serif; /* Define a fonte padrão */
+}
+
+/* Estilização do cartão principal */
+.card{
+position: relative; /* Permite posicionamento absoluto dos elementos internos */
+width: 300px; /* Largura fixa do cartão */
+height: 400px; /* Altura fixa do cartão */
+background-color: black; /* Cor de fundo preta (visível durante transições) */
+box-shadow: 0px 30px 30px rgba(0,0,0,0.5); /* Sombra suave abaixo do cartão */
+}
+
+/* Camada de conteúdo que aparece por baixo/sobre a imagem */
+.content{
+position: absolute; /* Posicionamento relativo ao cartão (.card) */
+bottom: 0px; /* Fixa na parte inferior do cartão */
+width: 80%; /* Largura inicial: 80% do cartão */
+height: 80px; /* Altura inicial: apenas 80px (recolhida) */
+background-color: white; /* Fundo branco para o conteúdo textual */
+left: 10%; /* Margem esquerda de 10% (centraliza horizontalmente) */
+text-align: center; /* Texto centralizado */
+transition: 0.5s; /* Transição suave de 0.5 segundos para mudanças de estilo */
+overflow: hidden; /* Esconde conteúdo que ultrapassa a altura definida */
+}
+
+/* Estilização do título (h3) dentro do conteúdo */
+h3{
+font-size: 30px; /* Tamanho grande para o título */
+text-transform: uppercase; /* Transforma o texto em maiúsculas */
+margin: 25px; /* Margem ao redor do título */
+}
+
+/* Estilização do parágrafo dentro do conteúdo */
+p{
+width: 80%; /* Largura interna de 80% */
+margin: 10px auto; /* Margem automática nas laterais para centralizar */
+font-size: 18px; /* Tamanho de fonte legível */
+transition: 0.5s; /* Transição suave para quando aparecer/desaparecer */
+opacity: 0; /* Inicialmente invisível (transparente) */
+}
+
+/* Estilização do link "read more" */
+a{
+text-decoration: none; /* Remove o sublinhado padrão dos links */
+background-color: black; /* Fundo preto para contraste */
+color: white; /* Texto branco */
+padding: 10px 15px; /* Espaçamento interno (vertical/horizontal) */
+display: inline-block; /* Permite margens e largura, mas mantém fluxo inline */
+margin-top: 10px; /* Espaço acima do link */
+transition: 0.5s; /* Transição suave para quando aparecer/desaparecer */
+opacity: 0; /* Inicialmente invisível (transparente) */
+}
+
+/* Efeito ao passar o mouse sobre o cartão - expansão do conteúdo */
+.card:hover .content{
+height: 100%; /* Expande o conteúdo para altura total do cartão */
+width: 100%; /* Expande a largura para 100% do cartão */
+left: 0px; /* Remove a margem esquerda, ocupando todo o espaço */
+}
+
+/* Ajusta o tamanho da imagem para se adaptar perfeitamente ao container */
+.imgbox img {
+width: 100%;
+height: 100%;
+object-fit: cover; /* Faz com que a imagem cubra o espaço sem distorcer, cortando as sobras */
+}
+
+/* Garante que a caixa da imagem ocupe todo o espaço disponível do cartão */
+.imgbox {
+width: 100%;
+height: 100%;
+}
+/* Faz o texto e o botão reaparecerem quando o mouse passar sobre o cartão */
+.card:hover .content p,
+.card:hover .content a {
+opacity: 1;
+transition-delay: 0.3s; /* Dá um pequeno atraso para o texto surgir após o cartão expandir */
+}
